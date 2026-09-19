@@ -1,0 +1,70 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: var(--font-weight-medium);
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  min-width: 120px;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--white);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn--primary {
+  background: var(--blue-standard);
+  color: var(--white);
+  box-shadow: 0 2px 8px #24378238;
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--blue-light);
+  box-shadow: 0 4px 16px #24378252;
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  background: var(--white);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-color);
+  box-shadow: none;
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--bg-standard);
+  color: var(--text-primary);
+  border-color: var(--blue-standard);
+}
+
+.btn--danger {
+  background: var(--accent-red);
+  color: var(--white);
+  box-shadow: 0 2px 8px #dc262638;
+}
+.btn--danger:hover:not(:disabled) {
+  background: #b91c1c;
+  box-shadow: 0 4px 16px #dc262652;
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
