@@ -1,6 +1,5 @@
 import { getValidToken } from "../context/AuthContext";
-
-const API_BASE_URL = "http://172.29.141.101:3001";
+import { API_BASE_URL } from "../config";
 
 async function handleResponse(response) {
   let data = null;

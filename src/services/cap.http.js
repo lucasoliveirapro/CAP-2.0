@@ -1,6 +1,5 @@
 import { get, post } from "./api.methods";
-
-const API_BASE_URL = "http://172.29.141.101:3001";
+import { API_BASE_URL } from "../config";
 
 // The three fetchers below talk to the API with a bare `fetch` (no auth
 // header, no shared error shaping) instead of the `api.methods` helpers -

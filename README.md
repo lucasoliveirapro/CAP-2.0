@@ -27,11 +27,29 @@ CAP para fins de desenvolvimento/preview.
 referenciados em `/assets/...` não foram fornecidos como binários — só os nomes de arquivo;
 copie-os do build original para `public/assets/` se for rodar a aplicação de fato.
 
-## Rodando
+## Rodando contra o backend real
 
 ```bash
 npm install
 npm run dev
 ```
 
-A API é esperada em `http://172.29.141.101:3001` (mesmo host hardcoded no bundle original).
+A API é esperada em `http://172.29.141.101:3001` por padrão (mesmo host do bundle original,
+só acessível de dentro da rede interna). Isso é configurável por `VITE_API_BASE_URL` (veja
+`.env.example`).
+
+## Rodando com mock (sem rede interna)
+
+Sem acesso à rede da Stellantis, use o backend fake em `mock/server.mjs` (dados em memória,
+resetam a cada restart):
+
+```bash
+cp .env.example .env.local        # aponta VITE_API_BASE_URL pro mock
+npm run mock                      # terminal 1 — sobe o mock na porta 3001
+npm run dev                       # terminal 2 — sobe o app
+```
+
+Faça login com qualquer matrícula/senha (ex.: `98397` / `98397`) — o mock aceita qualquer
+credencial não vazia. A tela de login (`src/DevLogin.jsx`) é um scaffold só para rodar este
+repositório isoladamente; a tela de login de verdade pertence ao app maior, fora do escopo do
+módulo CAP.

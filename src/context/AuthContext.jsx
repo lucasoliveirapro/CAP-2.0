@@ -1,8 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-
-const API_HOST = "172.29.141.101";
-const API_PORT = "3001";
-const API_BASE_URL = `http://${API_HOST}:${API_PORT}`;
+import { API_BASE_URL } from "../config";
 
 const AuthContext = createContext();
 
@@ -178,5 +175,3 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
-
-export { API_BASE_URL };

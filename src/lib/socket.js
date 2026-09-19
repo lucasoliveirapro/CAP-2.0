@@ -1,11 +1,9 @@
 import { io } from "socket.io-client";
-
-const API_HOST = "172.29.141.101";
-const API_PORT = "3001";
+import { API_BASE_URL } from "../config";
 
 // Shared Socket.IO connection used by every realtime feature in the app
 // (Andon synoptic, FMS, production data, tc data, ...).
-export const socket = io(`http://${API_HOST}:${API_PORT}`, {
+export const socket = io(API_BASE_URL, {
   reconnection: true,
   reconnectionAttempts: 10,
   reconnectionDelay: 5000,

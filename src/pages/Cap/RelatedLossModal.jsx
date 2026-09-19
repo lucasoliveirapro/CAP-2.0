@@ -124,7 +124,10 @@ export const RelatedLossModal = ({
 
   const selectedTotal = Object.entries(selectedMap)
     .filter(([, isSelected]) => isSelected)
-    .map(([id]) => data.find((item) => item.id === id))
+    // `id` here is always a string (object keys are stringified), while
+    // `item.id` can be numeric - compare as strings so numeric-id backends
+    // don't silently stall the goal/progress calculation below.
+    .map(([id]) => data.find((item) => String(item.id) === id))
     .filter(Boolean)
     .reduce((total, item) => total + Number(item.tempo_disponivel || 0), 0);
 
